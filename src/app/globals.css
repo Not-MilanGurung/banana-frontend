@@ -1,26 +1,73 @@
-@import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* theme colours: change these and everything follows */
+  --primary: #2563eb;
+  --primary-text: #ffffff;
+  --secondary: #111111;
+  --secondary-text: #ffffff;
+  --accent: #f97316;
+  --surface: #ffffff;
+  --text: #111111;
+  --border: #111111;
+  --danger: #dc2626;
+  --success: #16a34a;
+
+  /* one background per page */
+  --bg-login: #fde047;
+  --bg-register: #f9a8d4;
+  --bg-game: #7dd3fc;
+  --bg-leaderboard: #bef264;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+* { box-sizing: border-box; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  color: var(--text);
 }
+
+/* ---------- pages ---------- */
+.page { min-height: 100vh; padding: 1.5rem; }
+.page-center { display: flex; align-items: center; justify-content: center; }
+.page-login { background: var(--bg-login); }
+.page-register { background: var(--bg-register); }
+.page-game { background: var(--bg-game); }
+.page-leaderboard { background: var(--bg-leaderboard); }
+
+/* ---------- layout ---------- */
+.nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: var(--surface);
+  border-bottom: 2px solid var(--border);
+}
+.nav-spacer { margin-left: auto; }
+
+.form { display: flex; flex-direction: column; gap: 0.75rem; width: 18rem; }
+.title { margin: 0; font-size: 1.5rem; font-weight: 700; }
+
+/* ---------- controls ---------- */
+.input {
+  padding: 0.5rem;
+  font: inherit;
+  background: var(--surface);
+  color: var(--text);
+  border: 2px solid var(--border);
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  font: inherit;
+  cursor: pointer;
+  border: 2px solid var(--border);
+}
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.btn-primary { background: var(--primary); color: var(--primary-text); }
+.btn-secondary { background: var(--secondary); color: var(--secondary-text); }
+.btn-link { background: none; border: none; padding: 0; text-decoration: underline; }
+
+.link { color: var(--text); text-decoration: underline; }
+.error { margin: 0; font-weight: 600; color: var(--danger); }
+.success { margin: 0; font-weight: 600; color: var(--success); }
