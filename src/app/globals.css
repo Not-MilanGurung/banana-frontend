@@ -71,3 +71,37 @@ body {
 .link { color: var(--text); text-decoration: underline; }
 .error { margin: 0; font-weight: 600; color: var(--danger); }
 .success { margin: 0; font-weight: 600; color: var(--success); }
+
+
+/* ---------- game ---------- */
+.game-layout {
+  display: grid;
+  grid-template-columns: 1fr 18rem;
+  gap: 1.5rem;
+  align-items: start;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+.panel { background: var(--surface); border: 2px solid var(--border); padding: 1rem; }
+.sidebar { background: var(--bg-leaderboard); border: 2px solid var(--border); padding: 1rem; }
+
+.stats { display: flex; gap: 2rem; margin-bottom: 1rem; }
+.stat-label { font-size: 0.8rem; text-transform: uppercase; }
+.stat-value { font-size: 1.5rem; font-weight: 700; }
+
+.puzzle {
+  display: block;
+  width: 100%;
+  max-height: 24rem;
+  object-fit: contain;
+  border: 2px solid var(--border);
+}
+.digits { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; margin: 1rem 0; }
+
+.table { width: 100%; border-collapse: collapse; }
+.table td { padding: 0.4rem 0.25rem; border-bottom: 2px solid var(--border); }
+.row-me { background: var(--accent); font-weight: 700; }
+
+@media (max-width: 800px) {
+  .game-layout { grid-template-columns: 1fr; }
+}
